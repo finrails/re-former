@@ -1,0 +1,17 @@
+<p>Edit User:</p>
+<%= form_with model: @user, html: { style: 'max-width: 300px; display: flex; flex-direction: column;' } do |form| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form.label :name, 'Username:' %>
+  <%= form.text_field :name %>
+  <%= form.label :email, 'Email:' %>
+  <%= form.email_field :email %>
+  <%= form.label :password, 'Password:' %>
+  <%= form.password_field :password %>
+  <%= form.submit 'touch it' %>
+<% end %>
